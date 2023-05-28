@@ -6,6 +6,8 @@
 
 package Cocina;
 
+import Salon.Pedido;
+
 /**
  *
  * @author jerson
@@ -19,6 +21,8 @@ public class AppCocina {
         // TODO code application logic here
         CocinaClass cocina = new CocinaClass();
         cocina.recibirPedido();
+//        Pedido pedidoDevolver = new Pedido();
+//        cocina.devolverPedido(pedidoDevolver);
     }
     
 }

@@ -20,6 +20,10 @@ public class CocinaClass {
     private ServerSocket server;
     private ObjectInputStream input;
     
+    // atributos para devolver pedido a salon
+    private Socket SocketPedidoDevolver;
+    private ObjectOutputStream outputPedido;    
+    
     //Atributo para realizar el casting
     private Pedido pedidoEntrante;
     
@@ -40,6 +44,19 @@ public class CocinaClass {
         }
         catch(Exception ex){
             System.out.println(ex);
+        }
+    }
+    
+    public void devolverPedido(Pedido pedidoDevolver){
+        try {
+            SocketPedidoDevolver = new Socket("127.0.0.1", 4444);
+            outputPedido = new ObjectOutputStream(SocketPedidoDevolver.getOutputStream());
+            outputPedido.writeObject(pedidoDevolver);
+            outputPedido.flush();
+            outputPedido.close();
+            SocketPedidoDevolver.close();
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 }

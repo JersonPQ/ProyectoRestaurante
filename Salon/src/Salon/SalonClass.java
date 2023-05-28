@@ -5,6 +5,8 @@
 package Salon;
 
 import java.util.ArrayList;
+import java.net.*;
+import java.io.*;
 
 /**
  *
@@ -12,5 +14,23 @@ import java.util.ArrayList;
  */
 public class SalonClass {
     
+    //Atributos para mandar información a las cocina
+    Socket PedidoSocket;
+    ObjectOutputStream output;
+    
     private ArrayList<Mesa> mesas;
+    
+    void enviarPedido(Pedido pedido){
+        try{
+            PedidoSocket = new Socket("127.0.0.1", 3333);
+            output = new ObjectOutputStream(PedidoSocket.getOutputStream());
+            output.writeObject(pedido);
+            output.flush();
+            output.close();
+            PedidoSocket.close();
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+        }
+    }
 }

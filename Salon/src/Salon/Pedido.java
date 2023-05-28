@@ -12,11 +12,12 @@ package Salon;
  */
 
 import java.util.ArrayList;
-import Cocina.Hamburguesa;
+//import Cocina.Hamburguesa;
+import java.io.Serializable;
 
-public class Pedido {
+public class Pedido implements Serializable{
     
-    private ArrayList<Hamburguesa> listaPedido;
+    //private ArrayList<Hamburguesa> listaPedido;
     private boolean pedidoCompletado;
     private int idMesa;
     private static int contadorPedido;

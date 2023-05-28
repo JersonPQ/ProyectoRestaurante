@@ -17,6 +17,9 @@ public class AppSalon {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        SalonClass salon = new SalonClass();
+        Pedido pedido = new Pedido();
+        salon.enviarPedido(pedido);
     }
     
 }

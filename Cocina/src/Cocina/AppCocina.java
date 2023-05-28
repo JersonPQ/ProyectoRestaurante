@@ -17,6 +17,8 @@ public class AppCocina {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        CocinaClass cocina = new CocinaClass();
+        cocina.recibirPedido();
     }
     
 }

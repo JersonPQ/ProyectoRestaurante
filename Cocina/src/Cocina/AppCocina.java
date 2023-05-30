@@ -20,9 +20,7 @@ public class AppCocina {
     public static void main(String[] args) {
         // TODO code application logic here
         CocinaClass cocina = new CocinaClass();
-        cocina.recibirPedido();
-//        Pedido pedidoDevolver = new Pedido();
-//        cocina.devolverPedido(pedidoDevolver);
+        cocina.devolverPedido(new Pedido());
     }
     
 }

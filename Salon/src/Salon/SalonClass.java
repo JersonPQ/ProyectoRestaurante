@@ -28,7 +28,7 @@ public class SalonClass {
     
     public void enviarPedido(Pedido pedido){
         try{
-            PedidoSocket = new Socket("127.0.0.1", 3333);
+            PedidoSocket = new Socket("127.0.0.1", 4444);
             output = new ObjectOutputStream(PedidoSocket.getOutputStream());
             output.writeObject(pedido);
             output.flush();
@@ -38,23 +38,5 @@ public class SalonClass {
         catch(Exception ex){
             System.out.println(ex);
         }
-    }
-    
-    public void recibirPedidoDevuelto(){
-        try {
-            server = new ServerSocket(4444);
-            SocketRecibir = server.accept();
-            inputPedido = new ObjectInputStream(SocketRecibir.getInputStream());
-            pedidoDevuelto = (Pedido) inputPedido.readObject();
-            
-            System.out.println("Devuelto");
-            
-            inputPedido.close();
-            SocketRecibir.close();
-            server.close();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        
     }
 }

@@ -31,3 +31,5 @@ replay_pid*
 /Salon/dist/
 /Salon/build/
 /Simulacion/build/
+/Server/nbproject/private/
+/Server/build/

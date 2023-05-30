@@ -20,7 +20,6 @@ public class AppSalon {
         SalonClass salon = new SalonClass();
         Pedido pedido = new Pedido();
         salon.enviarPedido(pedido);
-//        salon.recibirPedidoDevuelto();
     }
     
 }

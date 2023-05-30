@@ -29,27 +29,9 @@ public class CocinaClass {
     
     private ArrayList<Pedido> pedidosPendientes;
     
-    public void recibirPedido(){
-        try{
-            server = new ServerSocket(3333);
-            SocketRecibir = server.accept();
-            input = new ObjectInputStream(SocketRecibir.getInputStream());
-            pedidoEntrante = (Pedido) input.readObject();
-            
-            System.out.println("Llego");
-            
-            input.close();
-            SocketRecibir.close();
-            server.close();
-        }
-        catch(Exception ex){
-            System.out.println(ex);
-        }
-    }
-    
     public void devolverPedido(Pedido pedidoDevolver){
         try {
-            SocketPedidoDevolver = new Socket("127.0.0.1", 4444);
+            SocketPedidoDevolver = new Socket("127.0.0.1", 5555);
             outputPedido = new ObjectOutputStream(SocketPedidoDevolver.getOutputStream());
             outputPedido.writeObject(pedidoDevolver);
             outputPedido.flush();

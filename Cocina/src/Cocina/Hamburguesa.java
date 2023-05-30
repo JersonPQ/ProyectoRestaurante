@@ -16,4 +16,13 @@ import java.util.ArrayList;
 public class Hamburguesa {
     
     protected ArrayList<String> ingredientes;
+    
+    public String getIngredientes(){
+        String ingre = "";
+        for(String i : ingredientes){
+            ingre += i + "-";
+        }
+        ingre = ingre.substring(0, ingre.length()-1);
+        return ingre;
+    }
 }

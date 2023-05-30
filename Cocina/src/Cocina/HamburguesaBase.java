@@ -1,19 +1,18 @@
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 package Cocina;
-
-import java.util.ArrayList;
 
 /**
  *
- * @author jerson
+ * @author dario
  */
-
-public class Hamburguesa {
+public class HamburguesaBase extends Hamburguesa {
     
-    protected ArrayList<String> ingredientes;
+    public HamburguesaBase(){
+        this.ingredientes.add("Pan");
+        this.ingredientes.add("Torta");
+        this.ingredientes.add("Pan");
+    }
 }

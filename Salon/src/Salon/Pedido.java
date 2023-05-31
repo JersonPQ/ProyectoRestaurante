@@ -5,6 +5,7 @@
  */
 
 package Salon;
+import Cocina.Hamburguesa;
 
 /**
  *
@@ -21,6 +22,7 @@ public class Pedido implements Serializable{
     private boolean pedidoCompletado;
     private int idMesa;
     private static int contadorPedido;
+    private Hamburguesa burguer;
     private int id;
     
 }

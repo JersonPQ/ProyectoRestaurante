@@ -19,7 +19,15 @@ public class AppSalon {
         // TODO code application logic here
         SalonClass salon = new SalonClass();
         Pedido pedido = new Pedido();
-        salon.enviarPedido(pedido);
+        
+//        try {
+//            Thread.sleep(5000);
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//        salon.enviarPedido(pedido);
+        System.out.println("Hace pedido");
+        salon.recibirListaPedidos();
     }
     
 }

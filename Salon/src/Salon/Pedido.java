@@ -21,8 +21,20 @@ public class Pedido implements Serializable{
     //private ArrayList<Hamburguesa> listaPedido;
     private boolean pedidoCompletado;
     private int idMesa;
-    private static int contadorPedido;
+
+    protected static int contadorPedido = 0;
+
     private Hamburguesa burguer;
+
     private int id;
+    
+    public Pedido(){
+        id = contadorPedido;
+        contadorPedido++;
+    }
+    
+    public int getID(){
+        return id;
+    }
     
 }

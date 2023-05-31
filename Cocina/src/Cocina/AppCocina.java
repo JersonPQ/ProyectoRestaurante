@@ -21,6 +21,8 @@ public class AppCocina {
         // TODO code application logic here
         CocinaClass cocina = new CocinaClass();
         cocina.devolverPedido(new Pedido());
+        
+        cocina.recibirListaPedidosPendientes();
     }
     
 }

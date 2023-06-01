@@ -18,4 +18,13 @@ public class HamburguesaJPQ extends Hamburguesa {
         this.ingredientes.add("Tomate");
         this.ingredientes.add("Pan");
     }
+    
+     /**
+     *
+     * @return
+     */
+    @Override
+    public String getType(){
+        return "Hamburguea JPQ";
+    }
 }

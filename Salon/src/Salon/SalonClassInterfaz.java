@@ -187,7 +187,7 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         // envia nuevo pedido a servidor
-        enviarPedido(new Pedido());
+        enviarPedido(new Pedido(1));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

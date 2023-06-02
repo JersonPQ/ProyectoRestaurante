@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import javax.swing.JDialog;
 
 /**
  *
@@ -128,9 +129,290 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialogMenu = new javax.swing.JDialog();
+        panelGeneralMenu = new javax.swing.JPanel();
+        PanelTituloMenu = new javax.swing.JPanel();
+        LabelMenu = new javax.swing.JLabel();
+        PanelHambBase9 = new javax.swing.JPanel();
+        LabelImagenHambBase9 = new javax.swing.JLabel();
+        LabelIngredientesHambBase9 = new javax.swing.JLabel();
+        botonSeleccionar = new javax.swing.JButton();
+        PanelHambPOO = new javax.swing.JPanel();
+        LabelImagenHambPOO = new javax.swing.JLabel();
+        LabelIngredientesHambPOO = new javax.swing.JLabel();
+        PanelRealizarPedido = new javax.swing.JPanel();
+        botonRealizarPedido = new javax.swing.JButton();
+        PanelHambJPQ = new javax.swing.JPanel();
+        LabelImagenHambJPQ = new javax.swing.JLabel();
+        LabelIngredientesHambJPQ = new javax.swing.JLabel();
+        botonSeleccionarHambJPQ = new javax.swing.JButton();
+        PanelHambPersonalizada = new javax.swing.JPanel();
+        LabelImagenHambPersonalizada = new javax.swing.JLabel();
+        LabelIngredientesHambPerso = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+
+        dialogMenu.setBackground(new java.awt.Color(255, 255, 255));
+        dialogMenu.setMinimumSize(new java.awt.Dimension(987, 566));
+        dialogMenu.setModal(true);
+
+        panelGeneralMenu.setBackground(new java.awt.Color(255, 255, 255));
+
+        PanelTituloMenu.setBackground(new java.awt.Color(255, 255, 255));
+
+        LabelMenu.setFont(new java.awt.Font("Liberation Sans", 0, 36)); // NOI18N
+        LabelMenu.setText("MENU");
+
+        javax.swing.GroupLayout PanelTituloMenuLayout = new javax.swing.GroupLayout(PanelTituloMenu);
+        PanelTituloMenu.setLayout(PanelTituloMenuLayout);
+        PanelTituloMenuLayout.setHorizontalGroup(
+            PanelTituloMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelTituloMenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LabelMenu)
+                .addGap(416, 416, 416))
+        );
+        PanelTituloMenuLayout.setVerticalGroup(
+            PanelTituloMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(LabelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+        );
+
+        PanelHambBase9.setBackground(new java.awt.Color(255, 255, 255));
+
+        LabelImagenHambBase9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LabelImagenHambBase9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesMenu/HamburguesaBase.png"))); // NOI18N
+        LabelImagenHambBase9.setText("Hamburguesa Base");
+        LabelImagenHambBase9.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        LabelImagenHambBase9.setMaximumSize(new java.awt.Dimension(646, 512));
+        LabelImagenHambBase9.setName("ImagenHambBase"); // NOI18N
+        LabelImagenHambBase9.setPreferredSize(new java.awt.Dimension(150, 150));
+
+        LabelIngredientesHambBase9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        LabelIngredientesHambBase9.setText("<html>\nIngredientes: <br>\n\n        - Pan<br>\n        - Torta<br>\n        - Pan\n\n</html>\n");
+        LabelIngredientesHambBase9.setToolTipText("");
+        LabelIngredientesHambBase9.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        LabelIngredientesHambBase9.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        LabelIngredientesHambBase9.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+
+        botonSeleccionar.setText("Seleccionar");
+
+        javax.swing.GroupLayout PanelHambBase9Layout = new javax.swing.GroupLayout(PanelHambBase9);
+        PanelHambBase9.setLayout(PanelHambBase9Layout);
+        PanelHambBase9Layout.setHorizontalGroup(
+            PanelHambBase9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelHambBase9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelHambBase9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(LabelImagenHambBase9, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
+                    .addComponent(botonSeleccionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LabelIngredientesHambBase9)
+                .addContainerGap())
+        );
+        PanelHambBase9Layout.setVerticalGroup(
+            PanelHambBase9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelHambBase9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelHambBase9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelHambBase9Layout.createSequentialGroup()
+                        .addComponent(LabelImagenHambBase9, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botonSeleccionar, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE))
+                    .addComponent(LabelIngredientesHambBase9))
+                .addContainerGap())
+        );
+
+        LabelImagenHambBase9.getAccessibleContext().setAccessibleName("ImagenHambBase");
+
+        PanelHambPOO.setBackground(new java.awt.Color(255, 255, 255));
+
+        LabelImagenHambPOO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LabelImagenHambPOO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesMenu/HamburguesaPoo.png"))); // NOI18N
+        LabelImagenHambPOO.setText("Hamburguesa POO");
+        LabelImagenHambPOO.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        LabelImagenHambPOO.setMaximumSize(new java.awt.Dimension(646, 512));
+        LabelImagenHambPOO.setName(""); // NOI18N
+        LabelImagenHambPOO.setPreferredSize(new java.awt.Dimension(150, 150));
+
+        LabelIngredientesHambPOO.setText("<html>\nIngredientes: <br>\n\n        - Pan <br>\n        - Torta <br>\n        - Torta <br>\n        - Queso cheddar <br>\n        - Salsa especial <br>\n        - Hongos <br>\n        - Pan <br>\n</html>");
+        LabelIngredientesHambPOO.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout PanelHambPOOLayout = new javax.swing.GroupLayout(PanelHambPOO);
+        PanelHambPOO.setLayout(PanelHambPOOLayout);
+        PanelHambPOOLayout.setHorizontalGroup(
+            PanelHambPOOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelHambPOOLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LabelImagenHambPOO, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LabelIngredientesHambPOO, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
+        );
+        PanelHambPOOLayout.setVerticalGroup(
+            PanelHambPOOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelHambPOOLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelHambPOOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelHambPOOLayout.createSequentialGroup()
+                        .addComponent(LabelImagenHambPOO, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(LabelIngredientesHambPOO, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        PanelRealizarPedido.setBackground(new java.awt.Color(255, 255, 255));
+
+        botonRealizarPedido.setText("Realizar pedido");
+
+        javax.swing.GroupLayout PanelRealizarPedidoLayout = new javax.swing.GroupLayout(PanelRealizarPedido);
+        PanelRealizarPedido.setLayout(PanelRealizarPedidoLayout);
+        PanelRealizarPedidoLayout.setHorizontalGroup(
+            PanelRealizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelRealizarPedidoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonRealizarPedido)
+                .addGap(408, 408, 408))
+        );
+        PanelRealizarPedidoLayout.setVerticalGroup(
+            PanelRealizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelRealizarPedidoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonRealizarPedido))
+        );
+
+        PanelHambJPQ.setBackground(new java.awt.Color(255, 255, 255));
+
+        LabelImagenHambJPQ.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LabelImagenHambJPQ.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesMenu/HamburguesaPoo.png"))); // NOI18N
+        LabelImagenHambJPQ.setText("Hamburguesa JPQ");
+        LabelImagenHambJPQ.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        LabelImagenHambJPQ.setMaximumSize(new java.awt.Dimension(646, 512));
+        LabelImagenHambJPQ.setName(""); // NOI18N
+        LabelImagenHambJPQ.setPreferredSize(new java.awt.Dimension(150, 150));
+
+        LabelIngredientesHambJPQ.setText("<html>\nIngredientes: <br>\n\n        - Pan <br>\n        - Torta <br>\n        - Lechuga <br>\n        - Pepinillos <br>\n        - Salsa de tomate <br>\n        - Tomate <br>\n        - Pan\n\n</html>");
+        LabelIngredientesHambJPQ.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        botonSeleccionarHambJPQ.setText("Seleccionar");
+
+        javax.swing.GroupLayout PanelHambJPQLayout = new javax.swing.GroupLayout(PanelHambJPQ);
+        PanelHambJPQ.setLayout(PanelHambJPQLayout);
+        PanelHambJPQLayout.setHorizontalGroup(
+            PanelHambJPQLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelHambJPQLayout.createSequentialGroup()
+                .addGroup(PanelHambJPQLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelHambJPQLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(LabelImagenHambJPQ, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botonSeleccionarHambJPQ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LabelIngredientesHambJPQ, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PanelHambJPQLayout.setVerticalGroup(
+            PanelHambJPQLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelHambJPQLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelHambJPQLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LabelIngredientesHambJPQ)
+                    .addGroup(PanelHambJPQLayout.createSequentialGroup()
+                        .addComponent(LabelImagenHambJPQ, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botonSeleccionarHambJPQ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+
+        PanelHambPersonalizada.setBackground(new java.awt.Color(255, 255, 255));
+
+        LabelImagenHambPersonalizada.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LabelImagenHambPersonalizada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesMenu/HamburguesaPersonalizada.png"))); // NOI18N
+        LabelImagenHambPersonalizada.setText("Hamburguesa Personalizada");
+        LabelImagenHambPersonalizada.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        LabelImagenHambPersonalizada.setMaximumSize(new java.awt.Dimension(646, 512));
+        LabelImagenHambPersonalizada.setName(""); // NOI18N
+
+        LabelIngredientesHambPerso.setText("<html>\nIngredientes: <br>\n\n        - Pan <br>\n        - Torta <br>\n        - Pan <br> <br>\n\nPosibles personalizaciones: <br>\n        - Cebolla <br>\n        - Tocino <br>\n        - Tomate <br>\n        - Huevo\n</html>");
+        LabelIngredientesHambPerso.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout PanelHambPersonalizadaLayout = new javax.swing.GroupLayout(PanelHambPersonalizada);
+        PanelHambPersonalizada.setLayout(PanelHambPersonalizadaLayout);
+        PanelHambPersonalizadaLayout.setHorizontalGroup(
+            PanelHambPersonalizadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelHambPersonalizadaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LabelImagenHambPersonalizada, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LabelIngredientesHambPerso, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
+        );
+        PanelHambPersonalizadaLayout.setVerticalGroup(
+            PanelHambPersonalizadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelHambPersonalizadaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelHambPersonalizadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelHambPersonalizadaLayout.createSequentialGroup()
+                        .addComponent(LabelImagenHambPersonalizada, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 80, Short.MAX_VALUE))
+                    .addComponent(LabelIngredientesHambPerso))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panelGeneralMenuLayout = new javax.swing.GroupLayout(panelGeneralMenu);
+        panelGeneralMenu.setLayout(panelGeneralMenuLayout);
+        panelGeneralMenuLayout.setHorizontalGroup(
+            panelGeneralMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGeneralMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelGeneralMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelGeneralMenuLayout.createSequentialGroup()
+                        .addGroup(panelGeneralMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PanelTituloMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PanelRealizarPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(panelGeneralMenuLayout.createSequentialGroup()
+                        .addGroup(panelGeneralMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(PanelHambBase9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PanelHambPOO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addGroup(panelGeneralMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PanelHambJPQ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PanelHambPersonalizada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+        );
+        panelGeneralMenuLayout.setVerticalGroup(
+            panelGeneralMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGeneralMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PanelTituloMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelGeneralMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelGeneralMenuLayout.createSequentialGroup()
+                        .addComponent(PanelHambBase9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelGeneralMenuLayout.createSequentialGroup()
+                        .addComponent(PanelHambJPQ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(12, 12, 12)))
+                .addGroup(panelGeneralMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelHambPersonalizada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelHambPOO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, Short.MAX_VALUE)
+                .addComponent(PanelRealizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout dialogMenuLayout = new javax.swing.GroupLayout(dialogMenu.getContentPane());
+        dialogMenu.getContentPane().setLayout(dialogMenuLayout);
+        dialogMenuLayout.setHorizontalGroup(
+            dialogMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogMenuLayout.createSequentialGroup()
+                .addComponent(panelGeneralMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        dialogMenuLayout.setVerticalGroup(
+            dialogMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelGeneralMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -186,8 +468,8 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        // envia nuevo pedido a servidor
-        enviarPedido(new Pedido());
+        // abre menu
+        dialogMenu.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -234,9 +516,65 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabelImagenHambBase;
+    private javax.swing.JLabel LabelImagenHambBase1;
+    private javax.swing.JLabel LabelImagenHambBase2;
+    private javax.swing.JLabel LabelImagenHambBase3;
+    private javax.swing.JLabel LabelImagenHambBase4;
+    private javax.swing.JLabel LabelImagenHambBase5;
+    private javax.swing.JLabel LabelImagenHambBase6;
+    private javax.swing.JLabel LabelImagenHambBase7;
+    private javax.swing.JLabel LabelImagenHambBase8;
+    private javax.swing.JLabel LabelImagenHambBase9;
+    private javax.swing.JLabel LabelImagenHambJPQ;
+    private javax.swing.JLabel LabelImagenHambPOO;
+    private javax.swing.JLabel LabelImagenHambPersonalizada;
+    private javax.swing.JLabel LabelIngredientesHambBase;
+    private javax.swing.JLabel LabelIngredientesHambBase1;
+    private javax.swing.JLabel LabelIngredientesHambBase2;
+    private javax.swing.JLabel LabelIngredientesHambBase3;
+    private javax.swing.JLabel LabelIngredientesHambBase4;
+    private javax.swing.JLabel LabelIngredientesHambBase5;
+    private javax.swing.JLabel LabelIngredientesHambBase6;
+    private javax.swing.JLabel LabelIngredientesHambBase7;
+    private javax.swing.JLabel LabelIngredientesHambBase8;
+    private javax.swing.JLabel LabelIngredientesHambBase9;
+    private javax.swing.JLabel LabelIngredientesHambJPQ;
+    private javax.swing.JLabel LabelIngredientesHambPOO;
+    private javax.swing.JLabel LabelIngredientesHambPerso;
+    private javax.swing.JLabel LabelMenu;
+    private javax.swing.JPanel PanelHambBase;
+    private javax.swing.JPanel PanelHambBase1;
+    private javax.swing.JPanel PanelHambBase2;
+    private javax.swing.JPanel PanelHambBase3;
+    private javax.swing.JPanel PanelHambBase4;
+    private javax.swing.JPanel PanelHambBase5;
+    private javax.swing.JPanel PanelHambBase6;
+    private javax.swing.JPanel PanelHambBase7;
+    private javax.swing.JPanel PanelHambBase8;
+    private javax.swing.JPanel PanelHambBase9;
+    private javax.swing.JPanel PanelHambJPQ;
+    private javax.swing.JPanel PanelHambPOO;
+    private javax.swing.JPanel PanelHambPersonalizada;
+    private javax.swing.JPanel PanelRealizarPedido;
+    private javax.swing.JPanel PanelTituloMenu;
+    private javax.swing.JButton botonRealizarPedido;
+    private javax.swing.JButton botonSeleccionar;
+    private javax.swing.JButton botonSeleccionarHambBase;
+    private javax.swing.JButton botonSeleccionarHambBase1;
+    private javax.swing.JButton botonSeleccionarHambBase2;
+    private javax.swing.JButton botonSeleccionarHambBase3;
+    private javax.swing.JButton botonSeleccionarHambBase4;
+    private javax.swing.JButton botonSeleccionarHambBase5;
+    private javax.swing.JButton botonSeleccionarHambBase6;
+    private javax.swing.JButton botonSeleccionarHambBase7;
+    private javax.swing.JButton botonSeleccionarHambBase8;
+    private javax.swing.JButton botonSeleccionarHambJPQ;
+    private javax.swing.JDialog dialogMenu;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel panelGeneralMenu;
     // End of variables declaration//GEN-END:variables
 
     @Override

@@ -15,4 +15,13 @@ public class HamburguesaBase extends Hamburguesa {
         this.ingredientes.add("Torta");
         this.ingredientes.add("Pan");
     }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String getType(){
+        return "Hamburguea base";
+    }
 }

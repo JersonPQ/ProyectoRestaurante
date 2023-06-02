@@ -24,17 +24,23 @@ public class Pedido implements Serializable{
 
     protected static int contadorPedido = 0;
 
-    private Hamburguesa burguer;
+    private ArrayList<Hamburguesa> arrayBurguer;
 
     private int id;
     
-    public Pedido(){
+    public Pedido(int _idMesa){
         id = contadorPedido;
         contadorPedido++;
+        this.idMesa = _idMesa;
     }
     
     public int getID(){
         return id;
     }
+    
+    public int getIdMesa(){
+        return idMesa;
+    }
+    
     
 }

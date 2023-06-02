@@ -5,7 +5,7 @@
  */
 
 package Salon;
-import Cocina.Hamburguesa;
+//import Cocina.Hamburguesa;
 
 /**
  *
@@ -24,14 +24,13 @@ public class Pedido implements Serializable{
 
     protected static int contadorPedido = 0;
 
-    private ArrayList<Hamburguesa> arrayBurguer;
+    //private ArrayList<Hamburguesa> arrayBurguer;
 
     private int id;
     
-    public Pedido(int _idMesa){
+    public Pedido(){
         id = contadorPedido;
         contadorPedido++;
-        this.idMesa = _idMesa;
     }
     
     public int getID(){
@@ -41,6 +40,5 @@ public class Pedido implements Serializable{
     public int getIdMesa(){
         return idMesa;
     }
-    
     
 }

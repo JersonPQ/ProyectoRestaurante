@@ -10,11 +10,7 @@ package Salon;
  */
 public class Mesa {
     
-    private boolean libre;
+    private boolean estado;
     private int id;
     private Pedido pedido;
-    
-    public boolean isLibre(){
-        return libre;
-    }
 }

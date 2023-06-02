@@ -10,6 +10,7 @@ import Salon.Pedido;
  * @author dario
  */
 public class PedidoCocina extends javax.swing.JPanel {
+    Pedido pedido;
 
     /**
      * Creates new form PedidoCocina
@@ -85,7 +86,7 @@ public class PedidoCocina extends javax.swing.JPanel {
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
-    Pedido pedido;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonListo;
     private javax.swing.JLabel IamgenPedido;

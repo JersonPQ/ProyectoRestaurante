@@ -173,6 +173,7 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
         botonSeleccionarHambPOO = new javax.swing.JButton();
         PanelRealizarPedido = new javax.swing.JPanel();
         botonRealizarPedido = new javax.swing.JButton();
+        botonCancelarMenu = new javax.swing.JButton();
         PanelHambJPQ = new javax.swing.JPanel();
         LabelImagenHambJPQ = new javax.swing.JLabel();
         LabelIngredientesHambJPQ = new javax.swing.JLabel();
@@ -210,7 +211,7 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
         jLabel1 = new javax.swing.JLabel();
 
         dialogMenu.setBackground(new java.awt.Color(255, 255, 255));
-        dialogMenu.setMinimumSize(new java.awt.Dimension(987, 566));
+        dialogMenu.setMinimumSize(new java.awt.Dimension(987, 600));
         dialogMenu.setModal(true);
         dialogMenu.setSize(new java.awt.Dimension(1001, 569));
 
@@ -343,20 +344,31 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
             }
         });
 
+        botonCancelarMenu.setText("Cancelar");
+        botonCancelarMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCancelarMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelRealizarPedidoLayout = new javax.swing.GroupLayout(PanelRealizarPedido);
         PanelRealizarPedido.setLayout(PanelRealizarPedidoLayout);
         PanelRealizarPedidoLayout.setHorizontalGroup(
             PanelRealizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelRealizarPedidoLayout.createSequentialGroup()
-                .addGap(423, 423, 423)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelRealizarPedidoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(botonCancelarMenu)
+                .addGap(312, 312, 312)
                 .addComponent(botonRealizarPedido)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelRealizarPedidoLayout.setVerticalGroup(
             PanelRealizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelRealizarPedidoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botonRealizarPedido))
+                .addGroup(PanelRealizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonRealizarPedido)
+                    .addComponent(botonCancelarMenu))
+                .addGap(0, 16, Short.MAX_VALUE))
         );
 
         PanelHambJPQ.setBackground(new java.awt.Color(255, 255, 255));
@@ -511,9 +523,9 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
         );
 
         dialogExtras.setBackground(new java.awt.Color(255, 255, 255));
-        dialogExtras.setMinimumSize(new java.awt.Dimension(1001, 575));
+        dialogExtras.setMinimumSize(new java.awt.Dimension(1001, 600));
         dialogExtras.setModal(true);
-        dialogExtras.setPreferredSize(new java.awt.Dimension(1001, 569));
+        dialogExtras.setPreferredSize(new java.awt.Dimension(1001, 581));
         dialogExtras.setSize(new java.awt.Dimension(1001, 569));
 
         panelGeneral.setBackground(new java.awt.Color(255, 255, 255));
@@ -962,6 +974,10 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
         }
     }//GEN-LAST:event_botonRealizarPedidoActionPerformed
 
+    private void botonCancelarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarMenuActionPerformed
+        dialogMenu.setVisible(false);
+    }//GEN-LAST:event_botonCancelarMenuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1022,6 +1038,7 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     private javax.swing.JPanel PanelHambPersonalizada;
     private javax.swing.JPanel PanelRealizarPedido;
     private javax.swing.JPanel PanelTituloMenu;
+    private javax.swing.JButton botonCancelarMenu;
     private javax.swing.JButton botonCebolla;
     private javax.swing.JButton botonExtrasListo;
     private javax.swing.JButton botonHuevo;

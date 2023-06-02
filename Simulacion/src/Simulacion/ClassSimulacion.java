@@ -4,7 +4,7 @@
  */
 package Simulacion;
 import Salon.Pedido;
-import Cocina.FactoryHamburguesa;
+import Salon.FactoryHamburguesa;
 import java.io.IOException;
 import java.net.Socket;
 import java.io.ObjectOutputStream;

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Cocina;
+package Salon;
 
 /**
  *
@@ -11,7 +11,7 @@ package Cocina;
 
 public class Personalizada extends Hamburguesa {
     //Se tiene que hacer un arrayLista de ingredientes
-    String[] baseIngredientes = {"Cebolla", "Tocino", "Tomate", "Huevo"};
+    static String[] baseIngredientes = {"Cebolla", "Tocino", "Tomate", "Huevo", "Salsa especial", "Lechuga"};
     
     //Constructores
     public Personalizada(String s){

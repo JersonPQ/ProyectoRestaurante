@@ -5,7 +5,6 @@
  */
 
 package Salon;
-import Cocina.Hamburguesa;
 
 /**
  *
@@ -40,6 +39,10 @@ public class Pedido implements Serializable{
     
     public int getIdMesa(){
         return idMesa;
+    }
+    
+    public ArrayList<Hamburguesa> getArrayHamburguesas(){
+        return arrayBurguer;
     }
     
     public void setHamburguesa(Hamburguesa burguer){

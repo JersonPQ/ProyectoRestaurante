@@ -53,6 +53,9 @@ public class CocinaClassInterfaz extends javax.swing.JFrame implements Runnable{
                 // pedidos pendientes toma el valor del array enviado por ele servidor
                 pedidosPendientes = (ArrayList<Pedido>) inputArrayPedidos.readObject();
                 
+                // actualiza panel cuando recibe pedido
+                actualizarPanel();
+                
                 System.out.println("Cantidad pendientes despues: " + pedidosPendientes.size());
                 System.out.println("Recibe pedido pendiente de servidor");
             }

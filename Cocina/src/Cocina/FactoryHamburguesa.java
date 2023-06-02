@@ -11,7 +11,7 @@ package Cocina;
 public class FactoryHamburguesa {
     
     
-    public Hamburguesa crearHamburguesa(int id){
+    public static Hamburguesa crearHamburguesa(int id){
         return switch (id) {
             case 1 -> new HamburguesaPoo();
             case 2 -> new HamburguesaJPQ();
@@ -20,7 +20,7 @@ public class FactoryHamburguesa {
     }
     
     
-    public Hamburguesa crearHamburguesa(int id, String ingredientes){
+    public static Hamburguesa crearHamburguesa(int id, String ingredientes){
         //Esta es para retornar una hamburguesa personalizada.
         //Con la hamburguesa base del 
         return switch (id) {

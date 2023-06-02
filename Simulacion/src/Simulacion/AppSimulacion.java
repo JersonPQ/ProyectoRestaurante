@@ -16,6 +16,8 @@ public class AppSimulacion {
      */
     public static void main(String[] args) {
         // TODO code application logic her
+        ClassSimulacion simulacion = new ClassSimulacion();
+        simulacion.generarEnviarPedido();
     }
     
 }

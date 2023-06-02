@@ -6,6 +6,7 @@
 
 package Cocina;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -13,9 +14,9 @@ import java.util.ArrayList;
  * @author jerson
  */
 
-public class Hamburguesa {
+public class Hamburguesa implements Serializable{
     
-    protected ArrayList<String> ingredientes;
+    protected ArrayList<String> ingredientes = new ArrayList<String>();
     
     public String getIngredientes(){
         String ingre = "";

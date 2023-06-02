@@ -94,7 +94,6 @@ public class ServerClass implements Runnable{
             socketRecibirSalon = serverSalon.accept();
             outputSalon = new ObjectOutputStream(socketRecibirSalon.getOutputStream());
             inputSalon = new ObjectInputStream(socketRecibirSalon.getInputStream());
-
         } catch (Exception e) {
             System.out.println(e + "    LINE: 95");
         }

@@ -24,7 +24,7 @@ public class Pedido implements Serializable{
 
     protected static int contadorPedido = 0;
 
-    private Hamburguesa burguer;
+    private ArrayList<Hamburguesa> burguers;
 
     private int id;
     

@@ -18,13 +18,4 @@ public class HamburguesaPoo extends Hamburguesa {
         this.ingredientes.add("Hongos");
         this.ingredientes.add("Pan");
     }
-    
-     /**
-     *
-     * @return
-     */
-    @Override
-    public String getType(){
-        return "Hamburguea POO";
-    }
 }

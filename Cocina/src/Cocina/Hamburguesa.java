@@ -25,8 +25,4 @@ public class Hamburguesa {
         ingre = ingre.substring(0, ingre.length()-1);
         return ingre;
     }
-    
-    public String getType(){
-        return "";
-    }
 }

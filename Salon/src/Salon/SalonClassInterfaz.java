@@ -18,6 +18,12 @@ import javax.swing.JDialog;
  */
 public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     
+    //Atributos para conectar con Simulador
+    ServerSocket serverSimulador;
+    Socket socketRecibirSimulador;
+    ObjectInputStream inputSimulador; 
+    Pedido pedidoSimulador;
+    
     //Atributos para mandar información a las cocina
     Socket PedidoSocket;
     ObjectOutputStream output;
@@ -58,6 +64,52 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     String salsaEspecial = "Salsa especial";
     String lechuga = "Lechuga";
     
+    
+    //Conexiones con Simulador--------------------------------------------------
+    
+    
+    //Abrir conexion para simulador
+    public void abrirConexionSimulador(){
+        try{
+            socketRecibirSimulador = serverSimulador.accept();
+            inputSimulador = new ObjectInputStream(socketRecibirSimulador.getInputStream());
+        }
+        catch(Exception ex){
+            System.out.println(ex + "    LINE: 119");
+        }
+        
+        recibirPedidoSimulador();
+    }
+    
+    //Recibe el pedido enviado de Simulador
+    public void recibirPedidoSimulador(){
+        try{
+            while(true){
+                pedidoSimulador = (Pedido) inputSimulador.readObject();
+                if(existMesaLibre()){
+                    for(Mesa mesa : mesas){
+                        if(mesa.isLibre()){
+                            //Aqui se añade el Pedido a la mesa
+                            //Se añade el Id de la mesa al pedido
+                        }
+                    }
+                }
+            }
+        }
+        catch(Exception e){
+            System.out.println(e + "    LINE: 117");
+        }
+    }
+    
+    //Definir si hay una mesa libre
+    public boolean existMesaLibre(){
+        for(Mesa mesa : mesas){
+            if(mesa.isLibre()){
+                return true;
+            }
+        }
+        return false;
+    }
     // GENERAL
     
     // método actualiza los arrays de los pedidos listos y los pendientes
@@ -80,7 +132,6 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     }
     
     // CONEXIONES
-    
     public void conectar(){
         try {
             PedidoSocket = new Socket("127.0.0.1", 4444);
@@ -138,6 +189,13 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
         
         initComponents();
         
+        //Inicializar server del Simulador
+         try{
+            serverSimulador = new ServerSocket(6666);
+        }
+        catch (IOException ex) {
+            System.out.println(ex + "    LINE: 69");
+        }
     }
     
     private int indexOf(String[] array, String element){
@@ -1015,7 +1073,7 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
         // inicia hilo con metodo run que es para que tenga un ciclo true para recibir 
         // de servidor
         hiloRecibirServidor.start();
-        
+        saloninterfaz.abrirConexionSimulador();
         saloninterfaz.setVisible(true);
         
         ///////////////////////////////////////////////////////////////

@@ -145,16 +145,9 @@ public class ServerClass implements Runnable{
     public void recibirPedidoCocina(){
         try {
             while (true) {                    
-//                socketRecibirCocina = serverCocina.accept();
-//                inputCocina = new ObjectInputStream(socketRecibirCocina.getInputStream());
-
                 // lee objeto que recibe
                 pedidoRecibidoCocina = (Pedido) inputCocina.readObject();
 
-//                System.out.println("Tamaño pedidos listos antes: " + pedidos.get(1).size());
-//                
-//                System.out.println("Pedidos pendientes antes: " + pedidos.get(0).size());
-//                
                 // llama metodo para actualizar el array de los pedidos pendientes y listos
                 actualizarPedidos(pedidoRecibidoSalon);
 
@@ -166,9 +159,6 @@ public class ServerClass implements Runnable{
                 // enviar la copia actualizada de los pedidos
                 outputSalon.writeObject(copiaPedidos);
                 outputSalon.flush();
-
-//                inputCocina.close();
-//                socketRecibirCocina.close();
 
                 System.out.println("Pedido devuelto");
             }

@@ -21,7 +21,7 @@ public class Pedido implements Serializable{
     private boolean pedidoCompletado;
     private int idMesa;
 
-    protected static int contadorPedido = 0;
+    protected static int contadorPedido = 1;
 
     private ArrayList<Hamburguesa> arrayBurguer;
 
@@ -30,6 +30,7 @@ public class Pedido implements Serializable{
     public Pedido(){
         id = contadorPedido;
         contadorPedido++;
+        pedidoCompletado = false;
         arrayBurguer = new ArrayList<Hamburguesa>();
     }
     
@@ -47,5 +48,13 @@ public class Pedido implements Serializable{
     
     public void setHamburguesa(Hamburguesa burguer){
         arrayBurguer.add(burguer);
+    }
+    
+    public void setIdMesa(int id){
+        this.idMesa = id;
+    }
+    
+    public void setPedidoCompletado(){
+        this.pedidoCompletado = true;
     }
 }

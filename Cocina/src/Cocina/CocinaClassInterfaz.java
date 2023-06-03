@@ -66,6 +66,8 @@ public class CocinaClassInterfaz extends javax.swing.JFrame implements Runnable{
     
     public void devolverPedido(Pedido pedidoDevolver){
         try {
+            // coloca el pedido como completado
+            pedidoDevolver.setPedidoCompletado();
             outputPedido.writeObject(pedidoDevolver);
             outputPedido.flush();
         } catch (Exception e) {
@@ -209,6 +211,5 @@ public class CocinaClassInterfaz extends javax.swing.JFrame implements Runnable{
         
         // inicia metodo para recibir de servidor
         recibirListaPedidosPendientes();
-        actualizarPanel();
     }
 }

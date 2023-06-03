@@ -4,6 +4,7 @@
  */
 package Salon;
 
+import java.awt.GridLayout;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -29,12 +30,11 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     ObjectOutputStream output;
     
     // atributos para recibir pedido
-    private Socket SocketRecibir;
-    private ServerSocket server;
     private ObjectInputStream inputArrayPedidos;
     private Pedido pedidoDevuelto;
     
     private ArrayList<Mesa> mesas;
+    private int cantidadMesas = 6;
     
     private ArrayList<ArrayList<Pedido>> pedidos;
     
@@ -55,6 +55,11 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     
     // variable para saber que hamburguesa pedir por medio de codigo de numero
     private int hamburguesaPedir;
+    
+    private boolean recibirServidorCorriendo;
+    
+    // atributo para saber a que mesa hay que ponerle el esperar
+    Mesa mesaHacerPedido;
     
     // valores para ingredientes extra
     String cebolla = "Cebolla";
@@ -101,6 +106,8 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
         }
     }
     
+    // METODOS GENERALES
+    
     //Definir si hay una mesa libre
     public boolean existMesaLibre(){
         for(Mesa mesa : mesas){
@@ -110,25 +117,12 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
         }
         return false;
     }
-    // GENERAL
     
-    // método actualiza los arrays de los pedidos listos y los pendientes
-    // añade el pedido a los pedidos listos y lo elimina de pedidos 
-    public void actualizarPedidos(Pedido pedidoListo){
-        
-        // elimina el pedido listo en el array de pedidos pendientes
-        for (int i = 0; i < pedidosPendientes.size(); i++) {
-            if (pedidoListo.getID() == pedidosPendientes.get(i).getID()) {
-                pedidosPendientes.remove(i);
-                break;
-            }
-        }
-        
-        pedidosListos.add(pedidoListo);
-        
-//        for (Pedido pedido : pedidosListos) {
-//            System.out.println(pedido.getID());
-//        }
+    private void actualizarPedidoListo(Pedido pedidoListo){
+        // toma el id de la mesa que esta en el pedido para ubicarlo en el array 
+        Mesa mesaPedidoListo = mesas.get(pedidoListo.getIdMesa() - 1);
+        mesaPedidoListo.getBoton().setText("Pagar");
+        mesaPedidoListo.getBoton().setEnabled(true);
     }
     
     // CONEXIONES
@@ -155,14 +149,16 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
 
                 // actualiza array de pedidos listos
                 pedidosListos = pedidos.get(1);
-
+                
                 System.out.println("Despues listos: " + pedidosListos.size());
+                
+                // envia el ultimo pedido que esta en el array de listos, es decir
+                // el ultimo que ha sido enviado por el servidor
+                actualizarPedidoListo(pedidosListos.get(pedidosListos.size() - 1));
             }
         } catch (Exception e) {
             System.out.println(e + "    LINE: 67");
         }
-
-        System.out.println("Pedidos pendientes: " + pedidosPendientes.size() + " Pedidos listos: " + pedidosListos.size());
     }
     
     public void enviarPedido(Pedido pedido){
@@ -181,16 +177,39 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     public SalonClassInterfaz() {
         // incializar arrays de pedidos
         pedidos = new ArrayList<>();
-        
+        mesas = new ArrayList<>();
         pedidosListos = new ArrayList<>();
         pedidosPendientes = new ArrayList<>();
+        
+        recibirServidorCorriendo = false;
         
         conectar();
         
         initComponents();
         
+        panelSalon.setLayout(new GridLayout(2, 4));
+        
+        for (int i = 0; i < cantidadMesas; i++) {
+            Mesa mesaCreada = new Mesa();
+            
+            // le asigna el action performed al boton de el panel de mesa
+            mesaCreada.getBoton().addActionListener(new java.awt.event.ActionListener() {
+                
+                Mesa mesa = mesaCreada;
+                
+                @Override
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    botonHacerPedido(evt, mesa);
+                }
+            });
+            
+            // anade la mesa creada al arrayList
+            mesas.add(mesaCreada);
+            panelSalon.add(mesaCreada);
+        }
+        
         //Inicializar server del Simulador
-         try{
+        try{
             serverSimulador = new ServerSocket(6666);
         }
         catch (IOException ex) {
@@ -264,9 +283,9 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
         botonLechuga = new javax.swing.JButton();
         panelExtrasListo = new javax.swing.JPanel();
         botonExtrasListo = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        panelSalon = new javax.swing.JPanel();
+        panelTituloSalon = new javax.swing.JPanel();
+        labelTituloSalon = new javax.swing.JLabel();
 
         dialogMenu.setBackground(new java.awt.Color(255, 255, 255));
         dialogMenu.setMinimumSize(new java.awt.Dimension(987, 600));
@@ -583,7 +602,6 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
         dialogExtras.setBackground(new java.awt.Color(255, 255, 255));
         dialogExtras.setMinimumSize(new java.awt.Dimension(1001, 600));
         dialogExtras.setModal(true);
-        dialogExtras.setPreferredSize(new java.awt.Dimension(1001, 581));
         dialogExtras.setSize(new java.awt.Dimension(1001, 569));
 
         panelGeneral.setBackground(new java.awt.Color(255, 255, 255));
@@ -900,63 +918,74 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1000, 500));
+        setSize(new java.awt.Dimension(700, 650));
 
-        jButton1.setText("Hacer pedido");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Mesa1");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(jLabel1)))
-                .addContainerGap(491, Short.MAX_VALUE))
+        javax.swing.GroupLayout panelSalonLayout = new javax.swing.GroupLayout(panelSalon);
+        panelSalon.setLayout(panelSalonLayout);
+        panelSalonLayout.setHorizontalGroup(
+            panelSalonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1000, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(330, Short.MAX_VALUE))
+        panelSalonLayout.setVerticalGroup(
+            panelSalonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 456, Short.MAX_VALUE)
         );
 
-        jButton1.getAccessibleContext().setAccessibleName("botonHacerPedido1");
-        jLabel1.getAccessibleContext().setAccessibleName("mesa1");
+        labelTituloSalon.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        labelTituloSalon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagesMenu/iconoSalon.png"))); // NOI18N
+        labelTituloSalon.setText("Salon");
+
+        javax.swing.GroupLayout panelTituloSalonLayout = new javax.swing.GroupLayout(panelTituloSalon);
+        panelTituloSalon.setLayout(panelTituloSalonLayout);
+        panelTituloSalonLayout.setHorizontalGroup(
+            panelTituloSalonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTituloSalonLayout.createSequentialGroup()
+                .addGap(450, 450, 450)
+                .addComponent(labelTituloSalon)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelTituloSalonLayout.setVerticalGroup(
+            panelTituloSalonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTituloSalonLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelTituloSalon))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelSalon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelTituloSalon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(panelTituloSalon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelSalon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        pedidoRealizar = new Pedido();
-        // abre menu
-        dialogMenu.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    private void botonHacerPedido(java.awt.event.ActionEvent evt, Mesa mesaClickeada){
+        mesaHacerPedido = mesaClickeada;
+        // en caso de que la mesa este libre abre ventana de menu
+        if (mesaHacerPedido.isLibre()) {
+            pedidoRealizar = new Pedido();
+            pedidoRealizar.setIdMesa(mesaClickeada.getIdMesa());
+            // abre menu
+            dialogMenu.setVisible(true);
+        } else { // caso de que no este libre es para pagar y libera la mesa
+            mesaClickeada.liberarMesa();
+            
+            // vuelve a poner el boton como la mesa libre
+            mesaClickeada.getBoton().setText("Realizar pedido");
+        }
+    }
+    
     private void botonSeleccionarHambBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarHambBaseActionPerformed
         ingredientesExtra = "";
         hamburguesaPedir = 3;
@@ -1028,6 +1057,14 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     private void botonRealizarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRealizarPedidoActionPerformed
         if (!pedidoRealizar.getArrayHamburguesas().isEmpty()) {
             enviarPedido(pedidoRealizar);
+            
+            // coloca el pedido en la mesa y coloca la mesa como ocupada
+            mesaHacerPedido.setPedido(pedidoRealizar);
+            
+            // cambia texto de boton al hacer el pedido y lo deshabilita
+            mesaHacerPedido.getBoton().setText("Pendiente...");
+            mesaHacerPedido.getBoton().setEnabled(false);
+            
             dialogMenu.setVisible(false);
         }
     }//GEN-LAST:event_botonRealizarPedidoActionPerformed
@@ -1070,10 +1107,15 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
         
         Thread hiloRecibirServidor = new Thread(saloninterfaz);
         
+        Thread hiloAbrirConexionSimulador = new Thread(saloninterfaz);
+        
         // inicia hilo con metodo run que es para que tenga un ciclo true para recibir 
         // de servidor
         hiloRecibirServidor.start();
-        saloninterfaz.abrirConexionSimulador();
+        
+        // inicia hilo para abrir conexion con simulador en caso de querer conectar con él
+//        hiloAbrirConexionSimulador.start();
+        
         saloninterfaz.setVisible(true);
         
         ///////////////////////////////////////////////////////////////
@@ -1111,13 +1153,11 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     private javax.swing.JButton botonTomate;
     private javax.swing.JDialog dialogExtras;
     private javax.swing.JDialog dialogMenu;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelCebolla;
     private javax.swing.JLabel labelHuevo;
     private javax.swing.JLabel labelLechuga;
     private javax.swing.JLabel labelSalsa;
+    private javax.swing.JLabel labelTituloSalon;
     private javax.swing.JLabel labelTocino;
     private javax.swing.JLabel labelTomate;
     private javax.swing.JPanel panelCebolla;
@@ -1126,15 +1166,23 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     private javax.swing.JPanel panelGeneralMenu;
     private javax.swing.JPanel panelHuevo;
     private javax.swing.JPanel panelLechuga;
+    private javax.swing.JPanel panelSalon;
     private javax.swing.JPanel panelSalsa;
     private javax.swing.JPanel panelTituloExtras;
+    private javax.swing.JPanel panelTituloSalon;
     private javax.swing.JPanel panelTocino;
     private javax.swing.JPanel panelTomate;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void run() {
-        // empieza metodo para recibir de servidor
-        recibirListaPedidos();
+        if (!recibirServidorCorriendo) {
+            // empieza metodo para recibir de servidor
+            recibirListaPedidos();
+            recibirServidorCorriendo = true;
+            System.out.println("Corre");
+        } else {
+            abrirConexionSimulador();
+        }
     }
 }

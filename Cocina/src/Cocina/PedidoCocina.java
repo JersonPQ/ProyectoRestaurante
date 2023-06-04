@@ -10,12 +10,14 @@ import Salon.Pedido;
  * @author dario
  */
 public class PedidoCocina extends javax.swing.JPanel {
+    CocinaClassInterfaz cocina;
     Pedido pedido;
 
     /**
      * Creates new form PedidoCocina
      */
-    public PedidoCocina(Pedido _pedido) {
+    public PedidoCocina(Pedido _pedido, CocinaClassInterfaz _cocina) {
+        cocina = _cocina;
         pedido = _pedido;
         initComponents();
         LabelNumMesa.setText("Mesa: " + pedido.getIdMesa());
@@ -55,6 +57,11 @@ public class PedidoCocina extends javax.swing.JPanel {
 
         BotonListo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         BotonListo.setText("Listo");
+        BotonListo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonListoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -85,6 +92,11 @@ public class PedidoCocina extends javax.swing.JPanel {
 
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BotonListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListoActionPerformed
+        // TODO add your handling code here:
+        this.cocina.devolverPedido(pedido);
+    }//GEN-LAST:event_BotonListoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

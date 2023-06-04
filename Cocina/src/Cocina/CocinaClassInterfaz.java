@@ -30,8 +30,7 @@ public class CocinaClassInterfaz extends javax.swing.JFrame implements Runnable{
     private ObjectOutputStream outputPedido;
     private ObjectInputStream inputArrayPedidos;
     
-    //Atributo para realizar el casting
-    private Pedido pedidoEntrante;
+    Pedido pedidoDevolver;    
     
     private ArrayList<Pedido> pedidosPendientes;
     
@@ -54,7 +53,11 @@ public class CocinaClassInterfaz extends javax.swing.JFrame implements Runnable{
                 pedidosPendientes = (ArrayList<Pedido>) inputArrayPedidos.readObject();
                 
                 // actualiza panel cuando recibe pedido
-                actualizarPanel();
+                System.out.println("Cantidad de hamburguesas: " + pedidosPendientes.size());
+                this.PanelCocina.removeAll();
+                for(Pedido pedido: pedidosPendientes){
+                    this.PanelCocina.add(new PedidoCocina(pedido, this));
+                }
                 
                 System.out.println("Cantidad pendientes despues: " + pedidosPendientes.size());
                 System.out.println("Recibe pedido pendiente de servidor");
@@ -70,15 +73,22 @@ public class CocinaClassInterfaz extends javax.swing.JFrame implements Runnable{
             pedidoDevolver.setPedidoCompletado();
             outputPedido.writeObject(pedidoDevolver);
             outputPedido.flush();
+            borrarPedido(pedidoDevolver);
         } catch (Exception e) {
             System.out.println(e + " LINE: 68");
         }
     }
     
+    public void borrarPedido(Pedido pedido){
+        int index = pedidosPendientes.indexOf(pedido);
+        pedidosPendientes.remove(index);
+    }
+    
     public void actualizarPanel(){
+        System.out.println("Se actualiza");
         this.PanelCocina.removeAll();
         for(Pedido pedido: pedidosPendientes){
-            this.PanelCocina.add(new PedidoCocina(pedido));
+            this.PanelCocina.add(new PedidoCocina(pedido, this));
         }
     }
 

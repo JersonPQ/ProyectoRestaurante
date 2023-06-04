@@ -4,6 +4,7 @@
  */
 package Cocina;
 import Salon.Pedido;
+import Salon.Hamburguesa;
 
 /**
  *
@@ -22,6 +23,11 @@ public class PedidoCocina extends javax.swing.JPanel {
         initComponents();
         LabelNumMesa.setText("Mesa: " + pedido.getIdMesa());
         LabelNumPedido.setText("Pedido: " + pedido.getID());
+        String stringTypeBurgers = "";
+        for (Hamburguesa burger : _pedido.getArrayHamburguesas()){
+            stringTypeBurgers += burger.getType() + "\n";
+        }
+        LabelTypeBurger.setText(stringTypeBurgers);
     }
 
     /**

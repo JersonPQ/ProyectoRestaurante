@@ -149,7 +149,7 @@ public class ServerClass implements Runnable{
                 pedidoRecibidoCocina = (Pedido) inputCocina.readObject();
 
                 // llama metodo para actualizar el array de los pedidos pendientes y listos
-                actualizarPedidos(pedidoRecibidoSalon);
+                actualizarPedidos(pedidoRecibidoCocina);
 
                 // copia actualizada del objeto de pedidos
                 ArrayList<ArrayList<Pedido>> copiaPedidos = new ArrayList<>();

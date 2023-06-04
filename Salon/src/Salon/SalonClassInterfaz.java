@@ -96,6 +96,8 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
                         if(mesa.isLibre()){
                             //Aqui se añade el Pedido a la mesa
                             //Se añade el Id de la mesa al pedido
+                            mesa.setPedido(pedidoSimulador);
+                            break;
                         }
                     }
                 }

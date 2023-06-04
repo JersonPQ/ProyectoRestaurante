@@ -28,6 +28,7 @@ public class Mesa extends javax.swing.JPanel {
     
     public void setPedido(Pedido pedidoMesa){
         this.pedido = pedidoMesa;
+        this.pedido.setIdMesa(id);
         this.libre = false;
     }
 

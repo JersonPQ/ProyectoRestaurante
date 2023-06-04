@@ -20,17 +20,12 @@ import javax.swing.JButton;
  */
 public class CocinaClassInterfaz extends javax.swing.JFrame implements Runnable{
     
-    //Atributos para recibir pedido
-    private Socket SocketRecibir;
-    private ServerSocket server;
-    private ObjectInputStream input;
-    
     // atributos para devolver pedido a salon
     private Socket SocketPedidoDevolver;
     private ObjectOutputStream outputPedido;
     private ObjectInputStream inputArrayPedidos;
     
-    Pedido pedidoDevolver;    
+//    Pedido pedidoDevolver;    
     
     private ArrayList<Pedido> pedidosPendientes;
     
@@ -54,10 +49,7 @@ public class CocinaClassInterfaz extends javax.swing.JFrame implements Runnable{
                 
                 // actualiza panel cuando recibe pedido
                 System.out.println("Cantidad de hamburguesas: " + pedidosPendientes.size());
-                this.PanelCocina.removeAll();
-                for(Pedido pedido: pedidosPendientes){
-                    this.PanelCocina.add(new PedidoCocina(pedido, this));
-                }
+                actualizarPanel();
                 
                 System.out.println("Cantidad pendientes despues: " + pedidosPendientes.size());
                 System.out.println("Recibe pedido pendiente de servidor");
@@ -74,6 +66,8 @@ public class CocinaClassInterfaz extends javax.swing.JFrame implements Runnable{
             outputPedido.writeObject(pedidoDevolver);
             outputPedido.flush();
             borrarPedido(pedidoDevolver);
+            
+            actualizarPanel();
         } catch (Exception e) {
             System.out.println(e + " LINE: 68");
         }
@@ -90,6 +84,10 @@ public class CocinaClassInterfaz extends javax.swing.JFrame implements Runnable{
         for(Pedido pedido: pedidosPendientes){
             this.PanelCocina.add(new PedidoCocina(pedido, this));
         }
+        
+        // actualiza ventana y la vuelve a diseñar luego de añadir los panels
+        this.revalidate();
+        this.repaint();
     }
 
     /**

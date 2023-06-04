@@ -80,11 +80,11 @@ public class ServerClass implements Runnable{
         for (int i = 0; i < pedidosPendientes.size(); i++) {
             if (pedidoListo.getID() == pedidosPendientes.get(i).getID()) {
                 pedidosPendientes.remove(i);
+                pedidosListos.add(pedidoListo);
                 break;
             }
         }
         
-        pedidosListos.add(pedidoListo);
     }
     
     // SALON

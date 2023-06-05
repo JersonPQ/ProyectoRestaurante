@@ -26,8 +26,8 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     Pedido pedidoSimulador;
     
     //Atributos para mandar información a las cocina
-    Socket PedidoSocket;
-    ObjectOutputStream output;
+    private Socket PedidoSocket;
+    private ObjectOutputStream output;
     
     // atributos para recibir pedido
     private ObjectInputStream inputArrayPedidos;
@@ -62,12 +62,12 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     Mesa mesaHacerPedido;
     
     // valores para ingredientes extra
-    String cebolla = "Cebolla";
-    String tocino = "Tocino";
-    String huevo = "Huevo";
-    String tomate = "Tomate";
-    String salsaEspecial = "Salsa especial";
-    String lechuga = "Lechuga";
+    private String cebolla = "Cebolla";
+    private String tocino = "Tocino";
+    private String huevo = "Huevo";
+    private String tomate = "Tomate";
+    private String salsaEspecial = "Salsa especial";
+    private String lechuga = "Lechuga";
     
     
     //Conexiones con Simulador--------------------------------------------------

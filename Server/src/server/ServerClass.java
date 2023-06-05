@@ -46,9 +46,6 @@ public class ServerClass implements Runnable{
     // pedido enviado desde cocina
     Pedido pedidoRecibidoCocina;
     
-    // boolean para saber si metodo de abrir conexion con salon ya fue abierto
-    boolean conexionSalonAbierta;
-    
     public ServerClass(){
         
         // inicializa arraylists

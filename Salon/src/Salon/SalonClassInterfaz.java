@@ -1116,7 +1116,7 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
         hiloRecibirServidor.start();
         
         // inicia hilo para abrir conexion con simulador en caso de querer conectar con él
-//        hiloAbrirConexionSimulador.start();
+        hiloAbrirConexionSimulador.start();
         
         saloninterfaz.setVisible(true);
         
@@ -1179,11 +1179,12 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     @Override
     public void run() {
         if (!recibirServidorCorriendo) {
+            recibirServidorCorriendo = true;
+            System.out.println("Corre servidor");
             // empieza metodo para recibir de servidor
             recibirListaPedidos();
-            recibirServidorCorriendo = true;
-            System.out.println("Corre");
         } else {
+            System.out.println("Simulador");
             abrirConexionSimulador();
         }
     }

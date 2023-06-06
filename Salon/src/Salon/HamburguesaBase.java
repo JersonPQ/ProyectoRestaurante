@@ -22,6 +22,6 @@ public class HamburguesaBase extends Hamburguesa {
      */
     @Override
     public String getType(){
-        return "Hamburguea base";
+        return "Hamburguesa base";
     }
 }

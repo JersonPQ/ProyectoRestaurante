@@ -25,6 +25,6 @@ public class HamburguesaPoo extends Hamburguesa {
      */
     @Override
     public String getType(){
-        return "Hamburguea POO";
+        return "Hamburguesa POO";
     }
 }

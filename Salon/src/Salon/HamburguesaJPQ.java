@@ -25,6 +25,6 @@ public class HamburguesaJPQ extends Hamburguesa {
      */
     @Override
     public String getType(){
-        return "Hamburguea JPQ";
+        return "Hamburguesa JPQ";
     }
 }

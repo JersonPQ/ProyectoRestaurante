@@ -46,6 +46,11 @@ public class Pedido implements Serializable{
         return arrayBurguer;
     }
     
+    public void setIdPedido(){
+        id = contadorPedido;
+        contadorPedido++;
+    }
+    
     public void setHamburguesa(Hamburguesa burguer){
         arrayBurguer.add(burguer);
     }

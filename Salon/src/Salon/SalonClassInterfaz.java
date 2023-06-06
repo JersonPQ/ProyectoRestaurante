@@ -91,12 +91,21 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
         try{
             while(true){
                 pedidoSimulador = (Pedido) inputSimulador.readObject();
+                System.out.println("Recibe");
                 if(existMesaLibre()){
                     for(Mesa mesa : mesas){
                         if(mesa.isLibre()){
+                            pedidoSimulador.setIdPedido();
+                            pedidoSimulador.setIdMesa(mesa.getIdMesa());
+                            enviarPedido(pedidoSimulador);
+                            
                             //Aqui se añade el Pedido a la mesa
                             //Se añade el Id de la mesa al pedido
                             mesa.setPedido(pedidoSimulador);
+                            
+                            // cambia texto de boton al hacer el pedido y lo deshabilita
+                            mesa.getBoton().setText("Pendiente...");
+                            mesa.getBoton().setEnabled(false);
                             break;
                         }
                     }

@@ -60,6 +60,8 @@ public class PedidoCocina extends javax.swing.JPanel {
         LabelNumMesa.setText("Mesa: #");
 
         LabelTypeBurger.setText("TipoBurguer");
+        LabelTypeBurger.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        LabelTypeBurger.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
         BotonListo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         BotonListo.setText("Listo");
@@ -80,8 +82,7 @@ public class PedidoCocina extends javax.swing.JPanel {
                     .addComponent(LabelNumPedido)
                     .addComponent(BotonListo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LabelTypeBurger, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(LabelTypeBurger, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

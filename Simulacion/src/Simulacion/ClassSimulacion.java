@@ -28,7 +28,7 @@ public class ClassSimulacion {
         int longitud = (int) (Math.floor(Math.random()*(4-1+1)+1));
         
         for(int i = 0; i < longitud; i++){
-            int indice = (int) (Math.floor(Math.random()*(banco.length()-0+1)+0));
+            int indice = (int) (Math.floor(Math.random()*((banco.length()-1)-0+1)+0));
             nString += banco.charAt(indice);
         }
         

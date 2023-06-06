@@ -32,4 +32,12 @@ public class Personalizada extends Hamburguesa {
             ingredientes.add(1, baseIngredientes[index]);
         }
     }
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String getType(){
+        return "Personalizada";
+    }
 }

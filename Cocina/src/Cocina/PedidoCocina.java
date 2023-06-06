@@ -23,10 +23,11 @@ public class PedidoCocina extends javax.swing.JPanel {
         initComponents();
         LabelNumMesa.setText("Mesa: " + pedido.getIdMesa());
         LabelNumPedido.setText("Pedido: " + pedido.getID());
-        String stringTypeBurgers = "";
+        String stringTypeBurgers = "<html>\n";
         for (Hamburguesa burger : _pedido.getArrayHamburguesas()){
-            stringTypeBurgers += burger.getType() + "\n";
+            stringTypeBurgers += burger.getType() + "<br>\n\n";
         }
+        stringTypeBurgers += "</html>";
         LabelTypeBurger.setText(stringTypeBurgers);
     }
 
@@ -82,7 +83,7 @@ public class PedidoCocina extends javax.swing.JPanel {
                     .addComponent(LabelNumPedido)
                     .addComponent(BotonListo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LabelTypeBurger, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                .addComponent(LabelTypeBurger, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -5,6 +5,7 @@
 package Salon;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -38,6 +39,10 @@ public class Mesa extends javax.swing.JPanel {
     
     public int getIdMesa(){
         return id;
+    }
+    
+    public JLabel getLabelMesa(){
+        return labelImagenMesa;
     }
     
     /**

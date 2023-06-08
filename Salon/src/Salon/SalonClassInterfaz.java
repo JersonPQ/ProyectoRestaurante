@@ -11,6 +11,7 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 
 /**
@@ -106,6 +107,10 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
                             // cambia texto de boton al hacer el pedido y lo deshabilita
                             mesa.getBoton().setText("Pendiente...");
                             mesa.getBoton().setEnabled(false);
+                            
+                            // cambia imagen de la mesa por mesa ocupada
+                            ImageIcon iconMesaOcupada = new ImageIcon("src/ImagesMenu/MesaOcupada.png");
+                            mesa.getLabelMesa().setIcon(iconMesaOcupada);
                             break;
                         }
                     }
@@ -994,6 +999,10 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
             
             // vuelve a poner el boton como la mesa libre
             mesaClickeada.getBoton().setText("Realizar pedido");
+            
+            // coloca imagen de mesa libre
+            ImageIcon iconMesaLibre = new ImageIcon("src/ImagesMenu/Mesa.png");
+            mesaClickeada.getLabelMesa().setIcon(iconMesaLibre);
         }
     }
     
@@ -1077,6 +1086,10 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
             mesaHacerPedido.getBoton().setEnabled(false);
             
             dialogMenu.setVisible(false);
+            
+            // coloca imagen de mesa ocupada
+            ImageIcon iconMesaOcupada = new ImageIcon("src/ImagesMenu/MesaOcupada.png");
+            mesaHacerPedido.getLabelMesa().setIcon(iconMesaOcupada);
         }
     }//GEN-LAST:event_botonRealizarPedidoActionPerformed
 

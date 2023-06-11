@@ -35,7 +35,7 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     private Pedido pedidoDevuelto;
     
     private ArrayList<Mesa> mesas;
-    private int cantidadMesas = 6;
+    private int cantidadMesas = 0;
     
     private ArrayList<ArrayList<Pedido>> pedidos;
     
@@ -299,6 +299,16 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
         botonLechuga = new javax.swing.JButton();
         panelExtrasListo = new javax.swing.JPanel();
         botonExtrasListo = new javax.swing.JButton();
+        dialogConfigMesas = new javax.swing.JDialog();
+        panelGeneralConfigMesas = new javax.swing.JPanel();
+        panelTituloConfigMesas = new javax.swing.JPanel();
+        labelTituloConfigMesas = new javax.swing.JLabel();
+        panelContenidoConfigMesas = new javax.swing.JPanel();
+        labelIndicacionMesas = new javax.swing.JLabel();
+        sliderCantMesas = new javax.swing.JSlider();
+        labelCantMesas1 = new javax.swing.JLabel();
+        panelBotonConfigMesas = new javax.swing.JPanel();
+        botonAceptarConfigMesas = new javax.swing.JButton();
         panelSalon = new javax.swing.JPanel();
         panelTituloSalon = new javax.swing.JPanel();
         labelTituloSalon = new javax.swing.JLabel();
@@ -933,6 +943,140 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
             .addComponent(panelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        dialogConfigMesas.setMinimumSize(new java.awt.Dimension(400, 310));
+        dialogConfigMesas.setModal(true);
+
+        panelGeneralConfigMesas.setBackground(new java.awt.Color(255, 255, 255));
+        panelGeneralConfigMesas.setForeground(new java.awt.Color(0, 0, 0));
+
+        panelTituloConfigMesas.setBackground(new java.awt.Color(255, 255, 255));
+        panelTituloConfigMesas.setForeground(new java.awt.Color(0, 0, 0));
+
+        labelTituloConfigMesas.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        labelTituloConfigMesas.setForeground(new java.awt.Color(0, 0, 0));
+        labelTituloConfigMesas.setText("Configuracion Mesas");
+
+        javax.swing.GroupLayout panelTituloConfigMesasLayout = new javax.swing.GroupLayout(panelTituloConfigMesas);
+        panelTituloConfigMesas.setLayout(panelTituloConfigMesasLayout);
+        panelTituloConfigMesasLayout.setHorizontalGroup(
+            panelTituloConfigMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTituloConfigMesasLayout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(labelTituloConfigMesas)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelTituloConfigMesasLayout.setVerticalGroup(
+            panelTituloConfigMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTituloConfigMesasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelTituloConfigMesas)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelContenidoConfigMesas.setBackground(new java.awt.Color(255, 255, 255));
+        panelContenidoConfigMesas.setForeground(new java.awt.Color(0, 0, 0));
+
+        labelIndicacionMesas.setForeground(new java.awt.Color(0, 0, 0));
+        labelIndicacionMesas.setText("Favor elegir la cantidad de mesas a existir en salon:");
+
+        sliderCantMesas.setMaximum(8);
+        sliderCantMesas.setMinimum(1);
+        sliderCantMesas.setToolTipText("");
+        sliderCantMesas.setValue(7);
+
+        labelCantMesas1.setForeground(new java.awt.Color(0, 0, 0));
+        labelCantMesas1.setText("  1    2     3    4     5    6    7    8");
+
+        javax.swing.GroupLayout panelContenidoConfigMesasLayout = new javax.swing.GroupLayout(panelContenidoConfigMesas);
+        panelContenidoConfigMesas.setLayout(panelContenidoConfigMesasLayout);
+        panelContenidoConfigMesasLayout.setHorizontalGroup(
+            panelContenidoConfigMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelContenidoConfigMesasLayout.createSequentialGroup()
+                .addGroup(panelContenidoConfigMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelContenidoConfigMesasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelIndicacionMesas))
+                    .addGroup(panelContenidoConfigMesasLayout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addGroup(panelContenidoConfigMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelCantMesas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(sliderCantMesas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+        panelContenidoConfigMesasLayout.setVerticalGroup(
+            panelContenidoConfigMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelContenidoConfigMesasLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(labelIndicacionMesas)
+                .addGap(21, 21, 21)
+                .addComponent(labelCantMesas1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sliderCantMesas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(101, Short.MAX_VALUE))
+        );
+
+        panelBotonConfigMesas.setBackground(new java.awt.Color(255, 255, 255));
+        panelBotonConfigMesas.setForeground(new java.awt.Color(0, 0, 0));
+
+        botonAceptarConfigMesas.setText("Aceptar");
+        botonAceptarConfigMesas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAceptarConfigMesasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelBotonConfigMesasLayout = new javax.swing.GroupLayout(panelBotonConfigMesas);
+        panelBotonConfigMesas.setLayout(panelBotonConfigMesasLayout);
+        panelBotonConfigMesasLayout.setHorizontalGroup(
+            panelBotonConfigMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBotonConfigMesasLayout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(botonAceptarConfigMesas)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelBotonConfigMesasLayout.setVerticalGroup(
+            panelBotonConfigMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBotonConfigMesasLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonAceptarConfigMesas)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panelGeneralConfigMesasLayout = new javax.swing.GroupLayout(panelGeneralConfigMesas);
+        panelGeneralConfigMesas.setLayout(panelGeneralConfigMesasLayout);
+        panelGeneralConfigMesasLayout.setHorizontalGroup(
+            panelGeneralConfigMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGeneralConfigMesasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelGeneralConfigMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelContenidoConfigMesas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelTituloConfigMesas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelBotonConfigMesas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        panelGeneralConfigMesasLayout.setVerticalGroup(
+            panelGeneralConfigMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGeneralConfigMesasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelTituloConfigMesas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelContenidoConfigMesas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelBotonConfigMesas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout dialogConfigMesasLayout = new javax.swing.GroupLayout(dialogConfigMesas.getContentPane());
+        dialogConfigMesas.getContentPane().setLayout(dialogConfigMesasLayout);
+        dialogConfigMesasLayout.setHorizontalGroup(
+            dialogConfigMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelGeneralConfigMesas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        dialogConfigMesasLayout.setVerticalGroup(
+            dialogConfigMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelGeneralConfigMesas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 500));
         setSize(new java.awt.Dimension(700, 650));
@@ -1097,6 +1241,38 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
         dialogMenu.setVisible(false);
     }//GEN-LAST:event_botonCancelarMenuActionPerformed
 
+    private void botonAceptarConfigMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarConfigMesasActionPerformed
+        cantidadMesas = sliderCantMesas.getValue();
+
+        // actualiza panel de las mesas
+        panelSalon.removeAll();
+        
+        for (int i = 0; i < cantidadMesas; i++) {
+            Mesa mesaCreada = new Mesa();
+            
+            // le asigna el action performed al boton de el panel de mesa
+            mesaCreada.getBoton().addActionListener(new java.awt.event.ActionListener() {
+                
+                Mesa mesa = mesaCreada;
+                
+                @Override
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    botonHacerPedido(evt, mesa);
+                }
+            });
+            
+            // anade la mesa creada al arrayList
+            mesas.add(mesaCreada);
+            panelSalon.add(mesaCreada);
+        }
+        
+        dialogConfigMesas.setVisible(false);
+        
+        // actualiza ventana de salon
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_botonAceptarConfigMesasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1142,6 +1318,8 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
         
         saloninterfaz.setVisible(true);
         
+        saloninterfaz.dialogConfigMesas.setVisible(true);
+        
         ///////////////////////////////////////////////////////////////
     }
 
@@ -1162,6 +1340,7 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     private javax.swing.JPanel PanelHambPersonalizada;
     private javax.swing.JPanel PanelRealizarPedido;
     private javax.swing.JPanel PanelTituloMenu;
+    private javax.swing.JButton botonAceptarConfigMesas;
     private javax.swing.JButton botonCancelarMenu;
     private javax.swing.JButton botonCebolla;
     private javax.swing.JButton botonExtrasListo;
@@ -1175,27 +1354,36 @@ public class SalonClassInterfaz extends javax.swing.JFrame implements Runnable{
     private javax.swing.JButton botonSeleccionarHambPerso;
     private javax.swing.JButton botonTocino;
     private javax.swing.JButton botonTomate;
+    private javax.swing.JDialog dialogConfigMesas;
     private javax.swing.JDialog dialogExtras;
     private javax.swing.JDialog dialogMenu;
+    private javax.swing.JLabel labelCantMesas1;
     private javax.swing.JLabel labelCebolla;
     private javax.swing.JLabel labelHuevo;
+    private javax.swing.JLabel labelIndicacionMesas;
     private javax.swing.JLabel labelLechuga;
     private javax.swing.JLabel labelSalsa;
+    private javax.swing.JLabel labelTituloConfigMesas;
     private javax.swing.JLabel labelTituloSalon;
     private javax.swing.JLabel labelTocino;
     private javax.swing.JLabel labelTomate;
+    private javax.swing.JPanel panelBotonConfigMesas;
     private javax.swing.JPanel panelCebolla;
+    private javax.swing.JPanel panelContenidoConfigMesas;
     private javax.swing.JPanel panelExtrasListo;
     private javax.swing.JPanel panelGeneral;
+    private javax.swing.JPanel panelGeneralConfigMesas;
     private javax.swing.JPanel panelGeneralMenu;
     private javax.swing.JPanel panelHuevo;
     private javax.swing.JPanel panelLechuga;
     private javax.swing.JPanel panelSalon;
     private javax.swing.JPanel panelSalsa;
+    private javax.swing.JPanel panelTituloConfigMesas;
     private javax.swing.JPanel panelTituloExtras;
     private javax.swing.JPanel panelTituloSalon;
     private javax.swing.JPanel panelTocino;
     private javax.swing.JPanel panelTomate;
+    private javax.swing.JSlider sliderCantMesas;
     // End of variables declaration//GEN-END:variables
 
     @Override
